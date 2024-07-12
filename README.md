@@ -39,3 +39,43 @@
  const root = ReactDOM.createRoot(document.getElementById("root"));
 
  root.render(parent); // In each component there is only one render on root. If we add two render the it render the last content only.
+
+
+ // Functional Component
+
+const elem = <span>Child element</span>
+
+const Title = () => (
+    <h1 className='head' tabIndex="5">
+        {elem}
+        Namaste  React using JSX
+    </h1>
+)
+
+const TitleElement = (
+    <h1>This is react element</h1>    
+)
+
+const HeadingComponent = () => (
+    <div id='container'>
+        <Title />
+        {Title()}
+        {TitleElement}
+        <h1 className='heading'>Namaste React Functional Component</h1>
+    </div>
+)
+
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+root.render(<HeadingComponent />)
+
+
+
+--- If you have loop some list in JSX, we need to give a key property in html tag where we send data.
+Example ==> 
+            {
+                resList.map(restaurent => (
+                    <RestaurentCards key={restaurent.card.card.info.id} data={restaurent}/>
+                ))
+            }
