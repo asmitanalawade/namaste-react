@@ -8,7 +8,7 @@ const RestaurentCards = (props) => {
         costForTwo,
         cloudinaryImageId,
         sla
-    } = props.data.card.card.info;
+    } = props.data.info;
     return(
         <div className='res-card' style={{
             backgroundColor: '#FFF'
