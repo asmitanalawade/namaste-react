@@ -1,4 +1,4 @@
-import RestaurentCards from "./RestaurentCard";
+import RestaurentCards from "./RestaurentCard.js";
 import { useEffect, useState } from "react";
 import Shimmer from "./shimmer";
 import { Link } from "react-router-dom";
@@ -28,24 +28,24 @@ const Body = () => {
 
     // Conditional rendering
     return restaurentList.length === 0 ? (<Shimmer/>) : (
-        <div className='body'>
-            <div className="filter">
+        <div className='p-2.5'>
+            <div className="flex mb-9">
                 <div className="search-box">
-                    <input type="text" className="search" value={searchText} onChange={(e)=>{
+                    <input type="text" className="border border-solid border-slate-300 p-1.5" value={searchText} onChange={(e)=>{
                         setSearchText(e.target.value);
                     }}/>
-                    <button className="search-btn" onClick={() => {
+                    <button className="ml-2 bg-blue-300 rounded-md p-1.5" onClick={() => {
                         let data = restaurentList.filter((val) => val.info.name.toLowerCase().includes(searchText.toLowerCase()));
                         setFilteredRestaurant(data);
                     }}>Search</button>
                 </div>
-                <button type="button" className="filter-btn" onClick={() => {
+                <button type="button" className="bg-green-200 rounded-md ml-7 p-1.5" onClick={() => {
                     let filteredData = restaurentList.filter((res) => res.info.avgRating > 4.1);
                     setList(filteredData);
                 }}>Top Rated Restaurant</button>
             </div>
             
-            <div className='res-container'>
+            <div className='flex flex-wrap p-3'>
                 {
                     filterrdRestaurant.map(restaurent => (
                         <Link key={restaurent.info.id} to={'/restaurant/' + restaurent.info.id}>
