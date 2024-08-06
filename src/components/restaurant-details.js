@@ -30,8 +30,11 @@ const RestaurantDetails = () => {
                         <div key={val?.card?.info?.id} className="flex justify-between mb-4">
                             <div className="p-2 w-8/12">
                                 <h1 className="font-bold text-lg">{val?.card?.info?.name}</h1>
-                                <h3 className="font-bold">{val?.card?.info?.ratings?.aggregatedRating?.rating} ⭐</h3>
-                                <h3>Rs. {val?.card?.info?.price/100 || val?.card?.info?.defaultPrice/100}</h3>
+                                <h3 className="font-bold">
+                                    {val?.card?.info?.ratings?.aggregatedRating?.rating > 4 ? 
+                                    '⭐' + val?.card?.info?.ratings?.aggregatedRating?.rating : ''}
+                                </h3>
+                                <h3 className="font-bold">Rs. {val?.card?.info?.price/100 || val?.card?.info?.defaultPrice/100}</h3>
                                 <p>{val?.card?.info?.description}</p>
                             </div>
                             <div className="res-img">
